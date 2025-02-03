@@ -19,13 +19,21 @@ public class Product {
     @Column(name="name")
     private String name;
 
+    @Column(name="color")
+    private String color;
+
+    @Column(name="image")
+    private String image;
+
 
     public Product(){}
 
-    public Product(String name, double price, int stockQuantity) {
+    public Product(String name, double price, int stockQuantity,String color, String image) {
         this.name = name;
         this.price = price;
         this.stockQuantity = stockQuantity;
+        this.color = color;
+        this.image = image;
         //
     }
 
@@ -60,5 +68,21 @@ public class Product {
 
     public void setStockQuantity(Integer stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

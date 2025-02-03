@@ -50,6 +50,8 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(updatedProduct.getPrice());
         product.setStockQuantity(updatedProduct.getStockQuantity());
 
+        //not complete needs refactoring
+
         Product updatedProductObj = productRepository.save(product);
         return ProductMapper.mapToProductDto(updatedProductObj);
     }

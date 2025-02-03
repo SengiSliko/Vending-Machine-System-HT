@@ -10,7 +10,9 @@ public class ProductMapper {
                 product.getId(),
                 product.getName(),
                 product.getPrice(),
-                product.getStockQuantity()
+                product.getStockQuantity(),
+                product.getColor(),
+                product.getImage()
         );
     }
 
@@ -18,7 +20,9 @@ public class ProductMapper {
         return new Product(
                 productDTO.getName(),
                 productDTO.getPrice(),
-                productDTO.getStockQuantity()
+                productDTO.getStockQuantity(),
+                productDTO.getColor(),
+                productDTO.getImage()
         );
     }
 }
