@@ -222,14 +222,14 @@ Your Name - sonosengi@gmail.com
 ## UML Diagrams: 
 
 
-#Transaction flow: 
+# Transaction flow: 
 
 ![image](https://github.com/user-attachments/assets/7e2aaef9-8947-4f0b-92dd-d5a1c70c534f)
 
-#Backend System UML Diagram: 
+# Backend System UML Diagram: 
 ![image](https://github.com/user-attachments/assets/dbdb951d-313a-4da7-a789-4f0177d65597)
 
-#frontend System UML Diagram: 
+# frontend System UML Diagram: 
 ![image](https://github.com/user-attachments/assets/e17806d0-c38b-49a3-b451-0eb1f8c1adcf)
 
 
