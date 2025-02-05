@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-insert-cash',
-  imports: [],
+  imports: [CommonModule,RouterLink],
   templateUrl: './insert-cash.component.html',
   styleUrl: './insert-cash.component.scss'
 })
