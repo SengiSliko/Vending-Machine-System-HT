@@ -7,6 +7,7 @@ import com.VendingApi.Vending.machine.api.exception.ResourceNotFoundException;
 import com.VendingApi.Vending.machine.api.mapper.CashInventoryMapper;
 import com.VendingApi.Vending.machine.api.repository.CashInventoryRepository;
 import com.VendingApi.Vending.machine.api.service.CashInventoryService;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Service
 public class CashInventoryServiceImpl implements CashInventoryService {
 
 

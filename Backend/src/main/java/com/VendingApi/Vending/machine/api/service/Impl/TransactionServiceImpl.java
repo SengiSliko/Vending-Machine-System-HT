@@ -12,6 +12,7 @@ import com.VendingApi.Vending.machine.api.repository.ProductRepository;
 import com.VendingApi.Vending.machine.api.repository.TransactionRepository;
 import com.VendingApi.Vending.machine.api.service.CashInventoryService;
 import com.VendingApi.Vending.machine.api.service.TransactionService;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
