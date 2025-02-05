@@ -2,6 +2,9 @@
 
 A full-stack vending machine simulation system built with Spring Boot and Angular. This application simulates a real vending machine with product management, payment processing, and change calculation capabilities.
 
+![image](https://github.com/user-attachments/assets/011ecf07-92a9-4a3d-8eb5-b67f938fcb7f)
+
+
 ## Features
 
 - Product management with real-time stock tracking
