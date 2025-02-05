@@ -1,13 +1,20 @@
 <div class="view-products-container">
-    <h2>Available Products</h2>
+    <div class="header">
+      <h2>Available Products</h2>
+    </div>
   
     <div class="products-grid">
       @for (product of products; track product.id) {
-        <div class="product-card">
+        <div class="product-card" 
+             [ngStyle]="{'background': hoveredProductId === product.id ? product.color : 'white'}"
+             (mouseenter)="hoveredProductId = product.id"
+             (mouseleave)="hoveredProductId = null">
+             <img [src]="'assets/' + product.image + '.svg'" alt="{{product.name}}">
           <h3>{{product.name}}</h3>
           <p>Price: R{{product.price}}</p>
           <p>Stock: {{product.stockQuantity}}</p>
           <button 
+            class="purchase-btn"
             (click)="purchaseProduct(product.id)"
             [disabled]="product.stockQuantity === 0">
             {{ product.stockQuantity === 0 ? 'Out of Stock' : 'Purchase' }}

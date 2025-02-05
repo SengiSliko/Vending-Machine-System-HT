@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from '../../serices/product.sservice';
 
 @Component({
   selector: 'app-vending-machine',
