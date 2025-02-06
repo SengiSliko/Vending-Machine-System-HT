@@ -1,6 +1,7 @@
 <div class="view-products-container">
     <div class="header">
       <h2>Available Products</h2>
+      <div class="balance">Current Balance: R{{currentCash}}</div>
     </div>
   
     <div class="products-grid">
@@ -9,15 +10,16 @@
              [ngStyle]="{'background': hoveredProductId === product.id ? product.color : 'white'}"
              (mouseenter)="hoveredProductId = product.id"
              (mouseleave)="hoveredProductId = null">
-             <img [src]="'assets/' + product.image + '.svg'" alt="{{product.name}}">
+          <img [src]="'assets/' + product.image + '.svg'" alt="{{product.name}}">
           <h3>{{product.name}}</h3>
           <p>Price: R{{product.price}}</p>
           <p>Stock: {{product.stockQuantity}}</p>
           <button 
             class="purchase-btn"
             (click)="purchaseProduct(product.id)"
-            [disabled]="product.stockQuantity === 0">
-            {{ product.stockQuantity === 0 ? 'Out of Stock' : 'Purchase' }}
+            [disabled]="product.stockQuantity === 0 || currentCash < product.price">
+            {{ product.stockQuantity === 0 ? 'Out of Stock' : 
+               currentCash < product.price ? 'Insert Cash' : 'Purchase' }}
           </button>
         </div>
       }

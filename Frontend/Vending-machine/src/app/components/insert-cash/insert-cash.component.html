@@ -1,5 +1,10 @@
 <div class="insert-cash-container">
-    <h2>Insert Cash</h2>
+    <div class="header">
+      <h2>Insert Cash</h2>
+      <div class="current-balance">
+        Current Balance: R{{currentCash}}
+      </div>
+    </div>
   
     <div class="denominations-grid">
       @for (denom of denominations; track denom.value) {
@@ -13,4 +18,3 @@
   
     <button routerLink="/" class="back-btn">Back to Main Menu</button>
   </div>
-  

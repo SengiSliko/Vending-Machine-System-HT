@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductService } from '../../serices/product.sservice';
+import { TransactionService } from '../../serices/transaction.service';
 
 @Component({
   selector: 'app-view-products',
@@ -13,11 +14,18 @@ import { ProductService } from '../../serices/product.sservice';
 export class ViewProductsComponent implements OnInit {
   products: any[] = [];
   hoveredProductId: number | null = null;
+  currentCash: number = 0;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private transactionService: TransactionService
+  ) {}
 
   ngOnInit() {
     this.loadProducts();
+    this.transactionService.currentCash$.subscribe(
+      cash => this.currentCash = cash
+    );
   }
 
   loadProducts() {
@@ -30,8 +38,19 @@ export class ViewProductsComponent implements OnInit {
   purchaseProduct(productId: number) {
     const product = this.products.find(p => p.id === productId);
     if (product && product.stockQuantity > 0) {
-      console.log('Purchasing product:', productId);
-      product.stockQuantity--;
+      if (this.transactionService.canPurchase(product.price)) {
+        if (this.transactionService.processPurchase(product.price)) {
+          product.stockQuantity--;
+          const change = this.transactionService.getChange();
+          if (change > 0) {
+            alert(`Purchase successful! Your change: R${change}`);
+          } else {
+            alert('Purchase successful!');
+          }
+        }
+      } else {
+        alert('Insufficient funds! Please insert more cash.');
+      }
     }
   }
 }

@@ -40,3 +40,17 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  
+    .current-balance {
+      font-size: 1.5em;
+      margin-top: 10px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      display: inline-block;
+    }
+  }
