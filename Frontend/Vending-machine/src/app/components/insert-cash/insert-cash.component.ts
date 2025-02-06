@@ -12,6 +12,7 @@ import { TransactionService } from '../../serices/transaction.service';
 })
 export class InsertCashComponent {
   currentCash: number = 0;
+  activeButton: number | null = null;
   
   denominations = [
     { value: 5, label: 'R5' },
@@ -28,7 +29,9 @@ export class InsertCashComponent {
   }
 
   insertCash(value: number) {
+    this.activeButton = value;
     this.transactionService.addCash(value);
-    console.log(`Added R${value}. Total: R${this.currentCash}`);
+    alert(`Added R${value}. Your current balance is: R${this.currentCash}`);
+    setTimeout(() => this.activeButton = null, 200);
   }
 }

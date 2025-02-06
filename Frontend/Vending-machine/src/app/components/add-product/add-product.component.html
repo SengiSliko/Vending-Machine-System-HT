@@ -1,36 +1,37 @@
-
 <div class="add-product-container">
-    <h2>Add New Product</h2>
-    
-    <form (ngSubmit)="addProduct()" class="product-form">
-      <div class="form-group">
-        <label>Name:</label>
-        <input type="text" [(ngModel)]="newProduct.name" name="name" required>
-      </div>
+  <h2>Add New Product</h2>
   
-      <div class="form-group">
-        <label>Price:</label>
-        <input type="number" [(ngModel)]="newProduct.price" name="price" required>
-      </div>
-  
-      <div class="form-group">
-        <label>Stock Quantity:</label>
-        <input type="number" [(ngModel)]="newProduct.stockQuantity" name="stockQuantity" required>
-      </div>
-  
-      <div class="form-group">
-        <label>Color:</label>
-        <input type="text" [(ngModel)]="newProduct.color" name="color">
-      </div>
-  
-      <div class="form-group">
-        <label>Image URL:</label>
-        <input type="text" [(ngModel)]="newProduct.image" name="image">
-      </div>
-  
-      <div class="buttons">
-        <button type="submit" class="submit-btn">Add Product</button>
-        <button type="button" routerLink="/" class="back-btn">Back</button>
-      </div>
-    </form>
-  </div>
+  <form (ngSubmit)="addProduct()" class="product-form">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="newProduct.name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Price:</label>
+      <input type="number" [(ngModel)]="newProduct.price" name="price" required>
+    </div>
+
+    <div class="form-group">
+      <label>Stock Quantity:</label>
+      <input type="number" [(ngModel)]="newProduct.stockQuantity" name="stockQuantity" required>
+    </div>
+
+    <div class="form-group">
+      <label>Color:</label>
+      <input type="text" [(ngModel)]="newProduct.color" name="color">
+    </div>
+
+    <div class="form-group">
+      <label>Image:</label>
+      <input type="text" [(ngModel)]="newProduct.image" name="image">
+    </div>
+
+    <div class="buttons">
+      <button type="submit" class="submit-btn" [attr.data-loading]="isLoading">
+        {{isLoading ? 'Adding...' : 'Add Product'}}
+      </button>
+      <button type="button" routerLink="/" class="back-btn">Back</button>
+    </div>
+  </form>
+</div>

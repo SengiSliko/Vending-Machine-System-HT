@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProductService } from '../../serices/product.sservice';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-vending-machine',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink, CommonModule],
   templateUrl: './vending-machine.component.html',
   styleUrl: './vending-machine.component.scss'
 })
 export class VendingMachineComponent {
-
-  constructor(private router: Router) {}
-
-  navigate(route: string) {
-    this.router.navigate([route]);
-  }
+  activeCard: string | null = null;
 }

@@ -1,20 +1,21 @@
 <div class="insert-cash-container">
-    <div class="header">
-      <h2>Insert Cash</h2>
-      <div class="current-balance">
-        Current Balance: R{{currentCash}}
-      </div>
+  <div class="header">
+    <h2>Insert Cash</h2>
+    <div class="current-balance">
+      Current Balance: R{{currentCash}}
     </div>
-  
-    <div class="denominations-grid">
-      @for (denom of denominations; track denom.value) {
-        <button 
-          class="denomination-btn" 
-          (click)="insertCash(denom.value)">
-          {{denom.label}}
-        </button>
-      }
-    </div>
-  
-    <button routerLink="/" class="back-btn">Back to Main Menu</button>
   </div>
+
+  <div class="denominations-grid">
+    @for (denom of denominations; track denom.value) {
+      <button 
+        class="denomination-btn"
+        [class.active]="activeButton === denom.value"
+        (click)="insertCash(denom.value)">
+        {{denom.label}}
+      </button>
+    }
+  </div>
+
+  <button routerLink="/" class="back-btn">Back to Main Menu</button>
+</div>

@@ -19,6 +19,7 @@ export class AddProductComponent {
     color: '',
     image: ''
   };
+  isLoading = false;
 
   constructor(
     private productService: ProductService,
@@ -26,14 +27,18 @@ export class AddProductComponent {
   ) {}
 
   addProduct() {
+    this.isLoading = true;
     this.productService.addProduct(this.newProduct).subscribe({
       next: () => {
         alert(`Product "${this.newProduct.name}" has been added successfully!`);
-        this.router.navigate(['/view-products']); // Redirect after success
+        this.router.navigate(['/view-products']);
       },
       error: (error) => {
         alert('Failed to add product. Please try again.');
         console.error('Error adding product:', error);
+      },
+      complete: () => {
+        this.isLoading = false;
       }
     });
   }

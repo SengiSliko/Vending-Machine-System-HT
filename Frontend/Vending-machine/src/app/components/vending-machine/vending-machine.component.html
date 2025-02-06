@@ -1,20 +1,32 @@
 <div class="container">
-    <h1>Vending Machine</h1>
-    
-    <div class="options">
-      <div class="option-card" (click)="navigate('/view-products')">
-        <h2>View Products</h2>
-        <p>Browse and purchase products</p>
-      </div>
+  <h1>Vending Machine</h1>
   
-      <div class="option-card" (click)="navigate('/add-product')">
-        <h2>Add Product</h2>
-        <p>Add new products to machine</p>
-      </div>
-  
-      <div class="option-card" (click)="navigate('/insert-cash')">
-        <h2>Insert Cash</h2>
-        <p>Add cash to machine</p>
-      </div>
+  <div class="options">
+    <div class="option-card" 
+         [class.active]="activeCard === 'products'"
+         (mouseenter)="activeCard = 'products'"
+         (mouseleave)="activeCard = null"
+         routerLink="/view-products">
+      <h2>View Products</h2>
+      <p>Browse and purchase products</p>
+    </div>
+
+    <div class="option-card"
+         [class.active]="activeCard === 'add'"
+         (mouseenter)="activeCard = 'add'"
+         (mouseleave)="activeCard = null"
+         routerLink="/add-product">
+      <h2>Add Product</h2>
+      <p>Add new products to machine</p>
+    </div>
+
+    <div class="option-card"
+         [class.active]="activeCard === 'cash'"
+         (mouseenter)="activeCard = 'cash'"
+         (mouseleave)="activeCard = null"
+         routerLink="/insert-cash">
+      <h2>Insert Cash</h2>
+      <p>Add cash to machine</p>
     </div>
   </div>
+</div>
