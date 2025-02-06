@@ -2,6 +2,9 @@
 
 A full-stack vending machine simulation system built with Spring Boot and Angular. This application simulates a real vending machine with product management, payment processing, and change calculation capabilities.
 
+![image](https://github.com/user-attachments/assets/011ecf07-92a9-4a3d-8eb5-b67f938fcb7f)
+
+
 ## Features
 
 - Product management with real-time stock tracking
@@ -205,6 +208,11 @@ ng test
 5. Open a Pull Request
 
 
+## API Documentation
+
+For detailed API documentation and endpoints, please refer to my [Postman Collection](https://web.postman.co/workspace/88429181-a2d7-401c-8f82-e89c31e76b30/documentation/40445686-31d856d4-78f5-46a7-b2c5-7a89530d6100).
+
+This collection contains all the available endpoints, request/response examples, and testing scenarios.
 
 ## Acknowledgments
 
