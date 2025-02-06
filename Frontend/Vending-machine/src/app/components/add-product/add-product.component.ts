@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../../serices/product.sservice';
 
 @Component({
   selector: 'app-add-product',
-  imports: [CommonModule,RouterLink,FormsModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.scss'
 })
 export class AddProductComponent {
-
   newProduct = {
     name: '',
     price: 0,
@@ -19,9 +20,21 @@ export class AddProductComponent {
     image: ''
   };
 
-  addProduct() {
-    console.log('Adding product:', this.newProduct);
-    //will add API call logic here 
-  }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) {}
 
+  addProduct() {
+    this.productService.addProduct(this.newProduct).subscribe({
+      next: () => {
+        alert(`Product "${this.newProduct.name}" has been added successfully!`);
+        this.router.navigate(['/view-products']); // Redirect after success
+      },
+      error: (error) => {
+        alert('Failed to add product. Please try again.');
+        console.error('Error adding product:', error);
+      }
+    });
+  }
 }
